@@ -3,6 +3,10 @@ import React from 'react';
 import './App.css';
 import SearchBar from './search_bar';
 import { useState } from 'react';
+import Ingredients from './Ingredients.svg';
+import 'materialize-css/dist/css/materialize.min.css';
+
+// import IngredientsHash from './ingredients';
 
 // keeps track of selected food items
 // class Food extends React.Component {
@@ -36,11 +40,15 @@ const filterPosts = (posts, query) => {
   });
 }
 
+// start by rendering one row (if none selected -> render row)
+// if there is something selected, filter Params
+
 function App() {
   const {search} = window.location;
   const query = new URLSearchParams(search).get('s');
   const [searchQuery, setSearchQuery] = useState(query || '');
   const filteredPosts = filterPosts(posts, searchQuery);
+  // const selectionMade = false;
 
   return (
     <div className="App">
@@ -55,6 +63,10 @@ function App() {
             <li kep={post.id}>{post.name}</li>
           ))}
         </ul>
+        <img src={Ingredients} alt="Ingredients"/>
+        <a href="./recipe.js" target="_blank">
+          <Button color="primary" variant="outlined"> Suggest a recipe </Button>
+        </a>
       </header>
     </div>
   );
