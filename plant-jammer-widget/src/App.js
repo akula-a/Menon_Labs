@@ -23,7 +23,7 @@ import 'materialize-css/dist/css/materialize.min.css';
 // }
 
 const items = [
-  {id: '1', name: 'acorn squash' },
+  {id: './icons/acorn_squash.png', name: 'acorn squash' },
   {id: '2', name: 'agave nectar'},
   {id: '3', name: 'allspice'}, 
   {id: '4', name: 'almonds'},	
@@ -68,10 +68,18 @@ function App() {
           />
         </div>
         <div class = "row">
-          {filtereditems.map((item) => (
-            <p key={item.id} class= "center col s2">{item.name}</p>
-          ))}
+          <img src= {require('./icons/acorn_squash.png').default} alt = "Icon" class= "center col s1 offset-s1" id = "icon" />
+          <img src= {require('./icons/agave nectar.png').default} alt = "Icon" class= "center col s1 offset-s1" id = "icon" />
+          <img src= {require('./icons/allspice.png').default} alt = "Icon" class= "center col s1 offset-s1" id = "icon" />
+          <img src= {require('./icons/almonds.png').default} alt = "Icon" class= "center col s1 offset-s1" id = "icon" />
+          <img src= {require('./icons/almond milk.png').default} alt = "Icon" class= "center col s1 offset-s1" id = "icon" />
+          <img src= {require('./icons/anise.png').default} alt = "Icon" class= "center col s1 offset-s1" id = "icon" />
         </div>
+        <div class = "row">
+            {filtereditems.map((item) => (
+              <p key={item.id} class= "center col s2">{item.name}</p>
+            ))}
+          </div>
         <div class = "row">
           <a href="./recipe.js" target="_blank">
             <button class = "col s2 offset-s5"> Suggest a recipe </button>

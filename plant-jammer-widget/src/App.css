@@ -32,6 +32,7 @@ button:hover {
 SearchBar {
   margin-left: 10em;
   margin-right: 10em;
+  border-radius: 25px;
 }
 
 .hidden {
@@ -42,4 +43,13 @@ SearchBar {
   position: absolute;
   white-space: nowrap;
   width: 1px;
+}
+
+#icon{
+  filter:grayscale(100%);
+  -webkit-filter: grayscale(100%);
+}
+
+#icon:hover{
+  filter:none;
 }
