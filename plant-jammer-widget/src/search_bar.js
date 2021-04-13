@@ -1,5 +1,5 @@
 import React from 'react';
-
+import 'materialize-css/dist/css/materialize.min.css';
 
 // citation: https://www.emgoto.com/react-search-bar/
 
@@ -15,7 +15,7 @@ const SearchBar = ({searchQuery, setSearchQuery}) => (
             id = "header-search"
             placeholder = "Search for ingredients that you have"
             name="s" />
-        <button type="submit"> Search</button>
+        <button type="submit"><i class="material-icons">search</i></button>
     </form>
 );
 

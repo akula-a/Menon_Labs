@@ -1,10 +1,10 @@
-// import logo from './logo.svg';
 import React from 'react';
 import './App.css';
 import SearchBar from './search_bar';
 import { useState } from 'react';
-import Ingredients from './Ingredients.svg';
+// import Ingredients from './Ingredients.svg';
 import 'materialize-css/dist/css/materialize.min.css';
+
 
 // import IngredientsHash from './ingredients';
 
@@ -22,21 +22,23 @@ import 'materialize-css/dist/css/materialize.min.css';
 //   }
 // }
 
-const posts = [
-  { id: '1', name: 'This first post is about React' },
-  { id: '2', name: 'This next post is about Preact' },
-  { id: '3', name: 'We have yet another React post!' },
-  { id: '4', name: 'This is the fourth and final post' },
+const items = [
+  {id: '1', name: 'acorn squash' },
+  {id: '2', name: 'agave nectar'},
+  {id: '3', name: 'allspice'}, 
+  {id: '4', name: 'almonds'},	
+  {id: '5', name: 'almond milk'}, 
+  {id: '6', name: 'anise'}
 ];
 
-const filterPosts = (posts, query) => {
+const filterItems = (items, query) => {
   if (!query) {
-    return posts;
+    return items;
   }
 
-  return posts.filter((post) => {
-    const postName = post.name.toLowerCase();
-    return postName.includes(query);
+  return items.filter((item) => {
+    const itemName = item.name.toLowerCase();
+    return itemName.includes(query);
   });
 }
 
@@ -47,26 +49,34 @@ function App() {
   const {search} = window.location;
   const query = new URLSearchParams(search).get('s');
   const [searchQuery, setSearchQuery] = useState(query || '');
-  const filteredPosts = filterPosts(posts, searchQuery);
+  const filtereditems = filterItems(items, searchQuery);
   // const selectionMade = false;
 
   return (
     <div className="App">
       <header className="App-header">
-        <h2> What ingredients do you have in your fridge? </h2>
-        <SearchBar
-          searchQuery={searchQuery}
-          setSearchQuery={setSearchQuery}
-        />
-        <ul>
-          {filteredPosts.map((post) => (
-            <li kep={post.id}>{post.name}</li>
+        <div class = "row"></div>
+        <div class = "row">
+          <h5 class = "col s7"> What ingredients do you have in your fridge? </h5>
+          <button class = "col s2 offset-s2"> Customize your recipe </button>
+        </div>
+        <div class="row">
+          <SearchBar
+            class = "col s6"
+            searchQuery={searchQuery}
+            setSearchQuery={setSearchQuery}
+          />
+        </div>
+        <div class = "row">
+          {filtereditems.map((item) => (
+            <p key={item.id} class= "center col s2">{item.name}</p>
           ))}
-        </ul>
-        <img src={Ingredients} alt="Ingredients"/>
-        <a href="./recipe.js" target="_blank">
-          <Button color="primary" variant="outlined"> Suggest a recipe </Button>
-        </a>
+        </div>
+        <div class = "row">
+          <a href="./recipe.js" target="_blank">
+            <button class = "col s2 offset-s5"> Suggest a recipe </button>
+          </a>
+        </div>
       </header>
     </div>
   );

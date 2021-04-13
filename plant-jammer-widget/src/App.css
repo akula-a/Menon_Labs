@@ -2,22 +2,36 @@
   align-items: center;
 }
 
-.App-h2 {
-   padding-left:2em;
-}
-
 .App-header {
   background-color: white;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  font-size: calc(10px + 2vmin);
   color:black;
 }
 
-.App-SearchBar {
-  align-items: center;
-  justify-content: center;
+h5 {
+  /* Body 1 */
+  font-size: 24px;
+  line-height: 125%;
+  color: #000000;
+}
+
+button {
+  width: 140px;
+  height: 40px;
+  border-radius: 40px;
+  background-color: #008A58;
+  color:white;
+  display: inline-block;
+}
+
+button:hover {
+    background-color: white;
+    color: #008A58;
+    border-color: #008A58;
+}
+
+SearchBar {
+  margin-left: 10em;
+  margin-right: 10em;
 }
 
 .hidden {
