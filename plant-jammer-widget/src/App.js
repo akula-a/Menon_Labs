@@ -6,6 +6,7 @@ import { useState } from 'react';
 import 'materialize-css/dist/css/materialize.min.css';
 import { Link } from 'react-router-dom';
 import items from './ingredient_list.js';
+import Popup from './customize_popup.js';
 
 // keeps track of selected food items
 // class Food extends React.Component {
@@ -44,6 +45,13 @@ function App() {
   // const selectionMade = false;
   const selectedItems = [];
 
+  const [isOpen, setIsOpen] = useState(false);
+ 
+  const togglePopup = () => {
+    setIsOpen(!isOpen);
+  }
+ 
+
   // iconClicked(item) {
   //   selectedItems.concat(item);
   //   selectionMade = true;
@@ -56,8 +64,16 @@ function App() {
         <div class = "row"></div>
         <div class = "row">
           <h5 class = "col s7"> What ingredients do you have in your fridge? </h5>
-          <button class = "col s2 offset-s2"> Customize your recipe </button>
+          <button class = "col s2 offset-s2" onClick={togglePopup}> Customize your recipe </button>
         </div>
+        {isOpen && <Popup
+          content={<>
+            <b class = "center">What are your dietary restrictions?</b>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <button class = "center">Confirm preferences</button>
+          </>}
+          handleClose={togglePopup}
+        />}
         <div class = "row"> <p> </p> </div>
           <SearchBar
             searchQuery={searchQuery}
