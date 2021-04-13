@@ -4,9 +4,8 @@ import SearchBar from './search_bar';
 import { useState } from 'react';
 // import Ingredients from './Ingredients.svg';
 import 'materialize-css/dist/css/materialize.min.css';
-
-
-// import IngredientsHash from './ingredients';
+import { Link } from 'react-router-dom';
+import items from './ingredient_list.js';
 
 // keeps track of selected food items
 // class Food extends React.Component {
@@ -22,15 +21,6 @@ import 'materialize-css/dist/css/materialize.min.css';
 //   }
 // }
 
-const items = [
-  {id: './icons/acorn_squash.png', name: 'acorn squash' },
-  {id: '2', name: 'agave nectar'},
-  {id: '3', name: 'allspice'}, 
-  {id: '4', name: 'almonds'},	
-  {id: '5', name: 'almond milk'}, 
-  {id: '6', name: 'anise'}
-];
-
 const filterItems = (items, query) => {
   if (!query) {
     return items;
@@ -45,12 +35,20 @@ const filterItems = (items, query) => {
 // start by rendering one row (if none selected -> render row)
 // if there is something selected, filter Params
 
+// home page
 function App() {
   const {search} = window.location;
   const query = new URLSearchParams(search).get('s');
   const [searchQuery, setSearchQuery] = useState(query || '');
-  const filtereditems = filterItems(items, searchQuery);
+  const filteredItems = filterItems(items, searchQuery);
   // const selectionMade = false;
+  const selectedItems = [];
+
+  // iconClicked(item) {
+  //   selectedItems.concat(item);
+  //   selectionMade = true;
+  // onClick = {this.iconClicked(item)}
+  // }
 
   return (
     <div className="App">
@@ -60,30 +58,29 @@ function App() {
           <h5 class = "col s7"> What ingredients do you have in your fridge? </h5>
           <button class = "col s2 offset-s2"> Customize your recipe </button>
         </div>
-        <div class="row">
+        <div class = "row"> <p> </p> </div>
           <SearchBar
-            class = "col s6"
             searchQuery={searchQuery}
-            setSearchQuery={setSearchQuery}
-          />
+            setSearchQuery={setSearchQuery} />
+        <div class = "row">
+          {selectedItems.map((item) => (
+            <p key={item.id}>{item.name}</p>
+          ))}
         </div>
         <div class = "row">
-          <img src= {require('./icons/acorn_squash.png').default} alt = "Icon" class= "center col s1 offset-s1" id = "icon" />
-          <img src= {require('./icons/agave nectar.png').default} alt = "Icon" class= "center col s1 offset-s1" id = "icon" />
-          <img src= {require('./icons/allspice.png').default} alt = "Icon" class= "center col s1 offset-s1" id = "icon" />
-          <img src= {require('./icons/almonds.png').default} alt = "Icon" class= "center col s1 offset-s1" id = "icon" />
-          <img src= {require('./icons/almond milk.png').default} alt = "Icon" class= "center col s1 offset-s1" id = "icon" />
-          <img src= {require('./icons/anise.png').default} alt = "Icon" class= "center col s1 offset-s1" id = "icon" />
+          {filteredItems.map((item) => (
+              <img src={item.id} class= "center col s1 offset-s1" alt="Icon" id="icon"/>
+            ))}
         </div>
         <div class = "row">
-            {filtereditems.map((item) => (
+            {filteredItems.map((item) => (
               <p key={item.id} class= "center col s2">{item.name}</p>
             ))}
-          </div>
+        </div>
         <div class = "row">
-          <a href="./recipe.js" target="_blank">
+          <Link to="./recipe.js">
             <button class = "col s2 offset-s5"> Suggest a recipe </button>
-          </a>
+          </Link>
         </div>
       </header>
     </div>

@@ -1,9 +1,9 @@
 .App{
   align-items: center;
+  background-color:#F9F9F9;
 }
 
 .App-header {
-  background-color: white;
   color:black;
 }
 
@@ -14,8 +14,7 @@ h5 {
   color: #000000;
 }
 
-button {
-  width: 140px;
+button{
   height: 40px;
   border-radius: 40px;
   background-color: #008A58;
@@ -30,9 +29,7 @@ button:hover {
 }
 
 SearchBar {
-  margin-left: 10em;
-  margin-right: 10em;
-  border-radius: 25px;
+  background-color: white;
 }
 
 .hidden {
@@ -52,4 +49,13 @@ SearchBar {
 
 #icon:hover{
   filter:none;
+}
+
+#search{
+  background-color:white;
+  border-radius: 40px;
+}
+
+#search-btn{
+  background-color: white;
 }
