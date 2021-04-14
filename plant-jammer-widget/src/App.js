@@ -68,9 +68,17 @@ function App() {
         </div>
         {isOpen && <Popup
           content={<>
-            <b class = "center">What are your dietary restrictions?</b>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <button class = "center">Confirm preferences</button>
+            <h5>What are your dietary restrictions?</h5><br/>
+            <div class = "row">
+              <button class = "col s3 offset-s1">Vegan</button>
+              <button class = "col s3 offset-s1">Vegetarian</button>
+              <button class = "col s3 offset-s1">Gluten Free</button><br/>
+            </div>
+            <h5>How many people are you serving?</h5><br/>
+            <h5>What are your cost restrictions?</h5><br/>
+            <div class = "row">
+              <button class = "col s3 offset-s5">Confirm preferences</button>
+            </div>
           </>}
           handleClose={togglePopup}
         />}
