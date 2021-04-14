@@ -67,14 +67,14 @@ function App() {
         </div>
         {isOpen && <Popup
           content={<>
-            <h5>What are your dietary restrictions?</h5><br/>
+            <h6>What are your dietary restrictions?</h6><br/>
             <div class = "row">
               <button class = "col s3 offset-s1">Vegan</button>
               <button class = "col s3 offset-s1">Vegetarian</button>
               <button class = "col s3 offset-s1">Gluten Free</button><br/>
             </div>
-            <h5>How many people are you serving?</h5><br/>
-            <h5>What are your cost restrictions?</h5><br/>
+            <h6>How many people are you serving?</h6><br/>
+            <h6>What are your cost restrictions?</h6><br/>
             <div class = "row">
               <button class = "col s3 offset-s5">Confirm preferences</button>
             </div>
