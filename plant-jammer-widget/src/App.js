@@ -2,7 +2,6 @@ import React from 'react';
 import './App.css';
 import SearchBar from './search_bar';
 import { useState } from 'react';
-// import Ingredients from './Ingredients.svg';
 import 'materialize-css/dist/css/materialize.min.css';
 import { Link } from 'react-router-dom';
 import items from './ingredient_list.js';
@@ -33,6 +32,8 @@ const filterItems = (items, query) => {
   });
 }
 
+
+
 // start by rendering one row (if none selected -> render row)
 // if there is something selected, filter Params
 
@@ -44,14 +45,12 @@ function App() {
   const filteredItems = filterItems(items, searchQuery);
   // const selectionMade = false;
   const selectedItems = [];
-
   const [isOpen, setIsOpen] = useState(false);
  
   const togglePopup = () => {
     setIsOpen(!isOpen);
   }
  
-
   // iconClicked(item) {
   //   selectedItems.concat(item);
   //   selectionMade = true;
@@ -83,13 +82,9 @@ function App() {
           handleClose={togglePopup}
         />}
         <div class = "row"> <p> </p> </div>
-          <SearchBar
-            searchQuery={searchQuery}
-            setSearchQuery={setSearchQuery} />
+          <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
         <div class = "row">
-          {selectedItems.map((item) => (
-            <p key={item.id}>{item.name}</p>
-          ))}
+          {selectedItems.map((item) => ( <p key={item.id}>{item.name}</p> ))}
         </div>
         <div class = "row">
           {filteredItems.map((item) => (
@@ -102,7 +97,7 @@ function App() {
             ))}
         </div>
         <div class = "row">
-          <Link to="./recipe.js">
+          <Link to="/recipes">
             <button class = "col s2 offset-s5"> Suggest a recipe </button>
           </Link>
         </div>
