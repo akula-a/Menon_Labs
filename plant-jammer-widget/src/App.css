@@ -25,15 +25,6 @@ SearchBar {
   filter:none;
 }
 
-#search{
-  background-color:white;
-  border-radius: 40px;
-}
-
-#search-btn{
-  background-color: white;
-}
-
 .popup-box {
   position: fixed;
   background: #00000050;

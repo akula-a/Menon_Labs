@@ -17,7 +17,9 @@ const SearchBar = ({searchQuery, setSearchQuery}) => (
                 id = "header-search"
                 placeholder = "Search for ingredients that you have"
                 name="s" />
-            <button type="submit" class = "col s1 offset-s12" id="search-btn"><img src= {require('./search_icon.png').default} alt = "Search Icon"/></button>
+            <button type="submit" class = "col s3 offset-s5" id="search-btn">
+                Search
+            </button>
         </form>
     </div>
 );

@@ -4,6 +4,7 @@ import './recipe.css';
 import 'materialize-css/dist/css/materialize.min.css';
 import Popup from './customize_popup.js';
 import { useState } from 'react'
+import PopupForm from './popup_content.js';
 // import { Link } from 'react-dom';
 
 function Recipe() {
@@ -23,17 +24,7 @@ function Recipe() {
 
         {isOpen && <Popup
           content={<>
-            <h6>What are your dietary restrictions?</h6><br/>
-            <div class = "row">
-              <button class = "col s3 offset-s1">Vegan</button>
-              <button class = "col s3 offset-s1">Vegetarian</button>
-              <button class = "col s3 offset-s1">Gluten Free</button><br/>
-            </div>
-            <h6>How many people are you serving?</h6><br/>
-            <h6>What are your cost restrictions?</h6><br/>
-            <div class = "row">
-              <button class = "col s3 offset-s5">Confirm preferences</button>
-            </div>
+            <PopupForm/>
           </>}
           handleClose={togglePopup}
           />}
