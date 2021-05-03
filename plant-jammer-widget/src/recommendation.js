@@ -14,19 +14,16 @@ function Recommendations() {
           <div class = "card col s3 center" id = "card"> 
             <div class="card-image">
               <img src={require('./ingredients_placeholder.png').default} alt="Ingredient"/>
-              <span class="card-title">Ingredient 1 </span>
             </div>
           </div>
           <div class = "card col s3 center" id = "card"> 
             <div class="card-image">
               <img src={require('./ingredients_placeholder.png').default} alt="Ingredient"/>
-              <span class="card-title">Ingredient 2 </span>
             </div>
           </div>
           <div class = "card col s3 center" id = "card"> 
             <div class="card-image">
               <img src={require('./ingredients_placeholder.png').default} alt="Ingredient"/>
-              <span class="card-title">Ingredient 3 </span>
             </div>
           </div>
         </div>
